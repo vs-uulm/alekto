@@ -1,4 +1,4 @@
-# ma-zero-trust-prototype
+# Alekto
 
 Prototype of the zero trust model for a research network.
 
