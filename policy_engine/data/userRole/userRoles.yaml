@@ -1,0 +1,29 @@
+# admin
+- kind: UserRole
+  name: admin
+  privileges: high
+
+# secretary
+- kind: UserRole
+  name: secretary
+  privileges: high
+
+# teacher
+- kind: UserRole
+  name: teacher
+  privileges: medium
+
+# lecturer
+- kind: UserRole
+  name: lecturer
+  privileges: medium
+
+# student
+- kind: UserRole
+  name: student
+  privileges: low
+
+# guest
+- kind: UserRole
+  name: guest
+  privileges: none

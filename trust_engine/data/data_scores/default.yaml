@@ -1,0 +1,13 @@
+# default values
+- kind: user
+  name: default
+  trustscore: 0.3
+  updatedat: 0
+- kind: device
+  name: default
+  trustscore: 0.3
+  updatedat: 0
+- kind: networkagent
+  name: default
+  trustscore: 0.3
+  updatedat: 0

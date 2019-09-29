@@ -1,0 +1,27 @@
+# authentication attempts USER
+- kind: variable
+  metadata:
+    name: userAuthenticationAttempts
+    description: Calculating the probability of an attacker due to previous authentication attempts (amount, ip-address change)
+  subject:
+    kind: user
+    name: baseline
+  opinion:
+    belief: 0
+    disbelief: 0
+    uncertainty: 1
+    baserate: 0.9
+
+# authentication attempts DEVICE
+- kind: variable
+  metadata:
+    name: deviceAuthenticationAttempts
+    description: Calculating the probability of an compromised device or an attackers device due to previous authentication attempts on this device (failed attempts, ip-address change)
+  subject:
+    kind: device
+    name: baseline
+  opinion:
+    belief: 0
+    disbelief: 0
+    uncertainty: 1
+    baserate: 0.5

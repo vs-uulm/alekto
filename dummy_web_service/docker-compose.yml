@@ -1,0 +1,13 @@
+version: "3"
+services:
+  dummy-web:
+    build: .
+    ports:
+      - "4438:4438"
+    networks:
+      dummyNetwork:
+        aliases:
+          - dummy-test.uni-ulm.de
+networks:
+  dummyNetwork:
+    driver: bridge

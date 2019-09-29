@@ -1,0 +1,216 @@
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1551961262
+  failed: false
+  ipaddress: 127.0.0.1:33016
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1552037890
+  failed: false
+  ipaddress: 127.0.0.1:55260
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1552039906
+  failed: false
+  ipaddress: 127.0.0.1:55260
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1552307190
+  failed: false
+  ipaddress: 127.0.0.1:59120
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1552311292
+  failed: false
+  ipaddress: 127.0.0.1:59120
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: hermes
+  method: 1
+  timestamp: 1552311379
+  failed: false
+  ipaddress: 127.0.0.1:59120
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553081900
+  failed: false
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083048
+  failed: false
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083141
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083156
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083159
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083166
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083170
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083174
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083175
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083177
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083180
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083183
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083184
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083185
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083186
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083187
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083188
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083189
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083190
+  failed: true
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083210
+  failed: false
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice
+- subject:
+    kind: user
+    name: bender
+  method: 1
+  timestamp: 1553083646
+  failed: false
+  ipaddress: 127.0.0.1:44748
+  deviceid: bendersDevice

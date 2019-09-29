@@ -1,0 +1,85 @@
+
+
+/**
+ * handle request
+ */
+func handleRequestAndInspectPayloadOld (res http.ResponseWriter, req *http.Request) {
+
+	authSuccess := authenticateUser(res, req)
+
+	proxy := httputil.NewSingleHostReverseProxy(&url.URL{
+		Scheme: "http",
+		Host: env.GetServerAddress(),
+	})
+
+	if !authSuccess {
+
+		req, _ = http.NewRequest("GET", "http://localhost:8080/login/index.php", nil)
+		res.Header().Set("Access-Control-Allow-Origin", "*")
+		req.Header.Add("Access-Control-Allow-Origin", "*")
+	}
+
+	proxy.ServeHTTP(res, req)
+}
+
+
+/**
+ * try to authenticate user
+ */
+func authenticateUserOld (res http.ResponseWriter, req *http.Request) bool {
+
+	// try to get and authenticate session cookie
+	success := cookie.AuthenticateSession(res, req)
+
+	if !success {
+
+		// try to authenticate with given username and password
+		requestPayload := readRequest(req)
+		success = ldap.Authenticate(requestPayload.Username, requestPayload.Password)
+	}
+
+	if success {
+
+		fmt.Println("User successfully verified")
+
+	} else  {
+
+		fmt.Println("User could not be verified successfully")
+	}
+
+	return success
+}
+
+
+/**
+ * reads the request dump and decodes the body to RequestPayloadStructure
+ */
+func readRequest(req *http.Request) helper.RequestPayloadStructure {
+
+	request := helper.GetRequestDump(req)
+
+	fmt.Println("--NEW REQUEST---------------")
+	fmt.Println(request)
+
+	requestPayload := helper.GetRequestPayload(req)
+	//requestPayloadJson, _ := json.Marshal(requestPayload)
+
+	fmt.Println("--DECODED PARAMS--------------")
+	fmt.Println(requestPayload)
+
+	return requestPayload
+}
+
+/**
+ * show landing page
+ */
+func showErrorPage (res http.ResponseWriter) {
+
+	indexTemplate, err := template.ParseFiles("static/index.html")
+
+	if err != nil { // if there is an error
+		log.Print("template parsing error: ", err) // log it
+	}
+
+	err = indexTemplate.Execute(res, nil)
+}

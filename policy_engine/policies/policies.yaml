@@ -1,0 +1,150 @@
+# global policy for admin users
+- kind: clientPolicy
+  metadata:
+    name: global-admin
+    scope: global
+    description:
+      Admin users of a service may only access this service
+      with the highest security levels
+  subjects:
+    - kind: userRole
+      name: admin
+    - kind: userRole
+      name: teacher
+  requires:
+    user:
+      trustscore: 0.9
+      authentication:
+        values: [u2f, 2fa]
+    device:
+      trustscore: 1.0
+      authentication:
+        values: [mtls]
+      type:
+        values: [mobile]
+        not: true
+    networkagent:
+      trustscore: 0.9
+
+# global clientPolicy for students
+- kind: clientPolicy
+  metadata:
+    name: global-student-trustscore
+    scope: global
+    exchangeable: ['global-student-mtls']
+    description:
+      Students need basic Authentication and a good user trust score [exchangable with global-student-mtls]
+  subjects:
+    - kind: userRole
+      name: student
+  requires:
+    user:
+      trustscore: 0.8
+      authentication:
+        values: [basicAuth, u2f, 2fa]
+
+# global clientPolicy for students
+- kind: clientPolicy
+  metadata:
+    name: global-student-mtls
+    scope: global
+    exchangeable: ['global-student-trustscore']
+    description:
+      Students need basic Authentication and mtls [exchangable with global-student-trustscore]
+  subjects:
+    - kind: userRole
+      name: student
+  requires:
+    user:
+      authentication:
+        values: [basicAuth, u2f, 2fa]
+    device:
+      authentication:
+        values: [mtls]
+    networkagent:
+      trustscore: 0.4
+
+# moodle specific clientPolicy for privileged users
+- kind: clientPolicy
+  metadata:
+    name: moodle-privileged-users
+    scope: moodle
+    description:
+      privileged moodle users need stronger user and device authentication
+  subjects:
+    - kind: userCategory
+      name: privileged
+    - kind: userCategory
+      name: highPrivileged
+  requires:
+    user:
+      trustscore: 0.7
+      authentication:
+        values: [u2f, 2fa]
+    device:
+      trustscore: 0.9
+      authentication:
+        values: [ipsec, mtls]
+#        operator: and
+      type:
+        values: [mobile]
+        not: true
+    networkagent:
+      trustscore: 0.8
+
+# moodle specific clientPolicy
+- kind: clientPolicy
+  metadata:
+    name: moodle-admin-view
+    path: admin/
+    scope: moodle
+    description:
+      Only Admins and secretaries are allowed to access the administrator interface
+  subjects:
+    - kind: deviceType
+      name: all
+  requires:
+    user:
+      role:
+        values: [admin, secretary]
+
+# moodle specific clientPolicy
+- kind: clientPolicy
+  metadata:
+    name: moodle-admin-view-location
+    path: admin/
+    scope: moodle
+    exchangeable: ['moodle-admin-view-trustscore']
+    description:
+      Only Admins and secretaries in Ulm are allowed to access the administrator interface
+  subjects:
+    - kind: deviceType
+      name: all
+  requires:
+    device:
+      location:
+        lat: 48.39841
+        long: 9.99155
+        city: Ulm
+        region: Baden-Wurttemberg
+        countrycode: DE
+
+# moodle specific clientPolicy
+- kind: clientPolicy
+  metadata:
+    name: moodle-admin-view-trustscore
+    path: admin/
+    scope: moodle
+    exchangeable: ['moodle-admin-view-location']
+    description:
+      Only Admins and secretaries with perfect trustscores are allowed to access the administrator interface
+  subjects:
+    - kind: deviceType
+      name: all
+  requires:
+    user:
+      trustscore: 1.0
+    device:
+      trustscore: 1.0
+    networkagent:
+      trustscore: 1.0

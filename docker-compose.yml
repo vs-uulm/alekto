@@ -1,0 +1,61 @@
+version: "3"
+services:
+  proxy:
+    build: ./moodle_proxy
+    ports:
+      - "10443:10443"
+    depends_on:
+      - sso_auth
+    environment:
+      - IGNORE_FAILED_AUTHORIZATION=1
+    networks:
+      zeroTrustNetwork:
+        aliases:
+         - moodle.uni-ulm.de
+      moodleservice_serviceNetwork:
+        aliases:
+         - moodle.uni-ulm.de
+  sso_auth:
+    build: ./sso_auth
+    ports:
+      - "4435:4435"
+    depends_on:
+      - ldap
+      - logger
+    networks:
+      zeroTrustNetwork:
+        aliases:
+         - sso.uni-ulm.de
+  logger:
+    build: ./logger
+    networks:
+      zeroTrustNetwork:
+        aliases:
+         - logger.uni-ulm.de
+  policy:
+    build: ./policy_engine
+    depends_on:
+      - trust
+    networks:
+      zeroTrustNetwork:
+        aliases:
+         - policy.uni-ulm.de
+  trust:
+    build: ./trust_engine
+    depends_on:
+      - logger
+    networks:
+      zeroTrustNetwork:
+        aliases:
+         - trust.uni-ulm.de
+  ldap:
+    image: "rroemhild/test-openldap"
+    networks:
+      zeroTrustNetwork:
+        aliases:
+         - ldap
+networks:
+  zeroTrustNetwork:
+    driver: bridge
+  moodleservice_serviceNetwork:
+    external: true

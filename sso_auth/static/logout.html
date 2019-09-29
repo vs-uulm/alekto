@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout Page</title>
+</head>
+<body>
+    <h1>Logout Page</h1>
+    <h2 style="background-color:lightgreen">You have been successfully logged out</h2>
+
+    <form action="/login">
+        <div class="container">
+            <input type="hidden" name="authenticationMethod" value="basicAuth" />
+            <button type="submit">New Basic AuthenticationLogin</button>
+        </div>
+    </form>
+
+    <form action="/login">
+        <div class="container">
+            <input type="hidden" name="authenticationMethod" value="twoFactorAuth" />
+            <button  type="submit">New 2FA Login</button>
+        </div>
+    </form>
+</body>
+</html>
