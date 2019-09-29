@@ -91,3 +91,14 @@ Requested by Trust Engine to get the log entries of a particular subject (user o
     127.0.0.1	localhost moodle.uni-ulm.de ca.uni-ulm.de sso.uni-ulm.de policy.uni-ulm.de trust.uni-ulm.de logger.uni-ulm.de
     ```
 
+We make use of the following libraries that need to be obtained separately:
+
+ * https://github.com/rroemhild/docker-test-openldap/
+ * https://github.com/dgrijalva/jwt-go
+ * https://github.com/gorilla/schema
+ * https://github.com/ip2location/ip2location-go
+ * https://github.com/subosito/gotenv
+ * https://github.com/go-sql-driver/mysql
+
+(First five: MIT License, last one: MPLv2) 
+
